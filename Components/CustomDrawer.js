@@ -20,7 +20,7 @@ const CustomDrawer = (props) => {
       <DrawerContentScrollView
         {...props}
         contentContainerStyle={{
-          backgroundColor: "#8200d6",
+          backgroundColor: "#9288F9",
           marginTop: -50,
           zIndex: 10,
         }}
