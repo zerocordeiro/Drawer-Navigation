@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  Switch,
 } from "react-native";
 import {
   DrawerContentScrollView,
@@ -32,7 +33,7 @@ const CustomDrawer = (props) => {
           <Image
             alt="Not find"
             source={require("../assets/Images/user.jpg")}
-            style={styles.userAvtar}
+            style={styles.userAvatar}
           />
           <Text
             style={{
@@ -48,6 +49,29 @@ const CustomDrawer = (props) => {
           <DrawerItemList {...props} />
         </View>
       </DrawerContentScrollView>
+      <View
+        style={{
+          borderTopWidth: 1,
+          borderTopColor: "#ccc",
+          // backgroundColor: colors.cardbackground,
+        }}
+      >
+        <Text style={styles.preferences}>Preferences</Text>
+        <View style={styles.switchTextContainer}>
+          <Switch
+            trackColor={{ false: "#767577", true: "#81b0ff" }}
+            thumbColor="#f4f3f4"
+            style={{ transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }] }}
+          />
+          <Text
+            style={{
+              fontSize: 15,
+            }}
+          >
+            Dark Theme
+          </Text>
+        </View>
+      </View>
       <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
         <TouchableOpacity onPress={() => {}} style={{ paddingVertical: 15 }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -85,11 +109,30 @@ const CustomDrawer = (props) => {
 export default CustomDrawer;
 
 const styles = StyleSheet.create({
-  userAvtar: {
+  userAvatar: {
     height: 67.5,
     width: 67.5,
     borderRadius: 40,
     marginBottom: 10,
-    marginTop: 20,
+    marginTop: 30,
+  },
+  switchTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: 7,
+    paddingVertical: 5,
+  },
+  preferences: {
+    fontSize: 16,
+    color: "#ccc",
+    paddingTop: 10,
+    fontWeight: "500",
+    paddingLeft: 20,
+  },
+  switchText: {
+    fontSize: 17,
+    color: "",
+    paddingTop: 10,
+    fontWeight: "bold",
   },
 });
