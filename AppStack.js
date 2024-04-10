@@ -11,6 +11,21 @@ const AppStack = () => {
         component={HomeScreen}
         options={{ headerShown: false }}
       />
+      <Drawer.Screen
+        name="HomeScreen1"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Drawer.Screen
+        name="HomeScreen2"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <Drawer.Screen
+        name="HomeScreen3"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
     </Drawer.Navigator>
   );
 };

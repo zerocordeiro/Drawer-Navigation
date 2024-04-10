@@ -32,7 +32,8 @@ const CustomDrawer = (props) => {
         >
           <Image
             alt="Not find"
-            source={require("../assets/Images/user.jpg")}
+            // source={require("../assets/Images/user.jpg")}
+            source={require("../assets/favicon.png")}
             style={styles.userAvatar}
           />
           <Text
