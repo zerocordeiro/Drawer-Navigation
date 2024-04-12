@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     container: {
         // height:windowHeight,
         // height:80,
-        top:0,
+        top:30,
         flex: 1,
         alignItems: 'center',
         // justifyContent: 'center',

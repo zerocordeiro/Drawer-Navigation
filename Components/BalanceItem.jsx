@@ -1,8 +1,27 @@
 import React, { useState } from 'react'
-import { Text, View , StyleSheet , Dimensions, Pressable , Alert, Button} from 'react-native';
+import { Text, View , StyleSheet , Dimensions, Pressable , Alert, Button, FlatList} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+
+const DATABALANCE=[
+    {
+        id:'11',
+        title:'10.000,00',
+    },
+    {
+        id:'22',
+        title:'500,00',
+    },
+    {
+        id:'33',
+        title:'350.000,00',
+    },
+    {
+        id:'44',
+        title:'12.500,00',
+    },
+]
 
 function ExpandButton({expanded, changeexpanded}){
     if(expanded==false){
@@ -16,7 +35,7 @@ function ExpandButton({expanded, changeexpanded}){
         //     title='MORE'
         // />
         >
-            <Text style={styles.expbuttontext}>MORE</Text>
+            <Text style={styles.expbuttontext}>+</Text>
         </Pressable>
         );
     }else{
@@ -28,13 +47,35 @@ function ExpandButton({expanded, changeexpanded}){
             }
         }
         >
-            <Text style={styles.expbuttontext}>LESS</Text>
+            <Text style={styles.expbuttontext}>-</Text>
         </Pressable>
         );
     }
     
 }
-let a=0;
+function ItemBalance({title}){
+    return(
+        <Text style={{fontSize:14}}>
+            {title}
+        </Text>
+    );
+}
+    
+function ExtraContent({expanded}){
+    if(expanded==false){
+        return(<></>);
+    }else{
+        return(
+            <FlatList 
+                data={DATABALANCE}
+                renderItem={({item})=> <ItemBalance title={item.title}/>
+                    }
+                keyExtractor={e=>e.id}
+            />
+        )
+    }
+}
+
 export default function BalanceItem({typeofaccount,value}){
     const [expanded,setExpanded] = useState(false);
     function openClose(valueexp){
@@ -52,6 +93,7 @@ export default function BalanceItem({typeofaccount,value}){
             expanded={expanded}
             changeexpanded={openClose}
         />
+        <ExtraContent expanded={expanded}/>
         <View style={styles.separator} lightColor="#777" darkColor="rgba(255,255,255,0.1)" />
         
         </View>
@@ -89,10 +131,10 @@ const styles = StyleSheet.create({
     expandbutton:{
         width:40,
         height:40,
-        backgroundColor:'#666666',
-        borderWidth:2,
-        borderColor:'#0044ee',
-        borderRadius:10,
+        backgroundColor:'#9a9a9a',
+        borderWidth:0,
+        borderColor:'#dadada',
+        borderRadius:30,
         position:'absolute',
         marginTop:20,
         // marginBottom:5,
@@ -100,5 +142,9 @@ const styles = StyleSheet.create({
     },
     expbuttontext:{
         color:'white',
+        fontSize:30,
+        textAlign:'center',
+        textAlignVertical:'center',
+        lineHeight:35,
     }
     });
