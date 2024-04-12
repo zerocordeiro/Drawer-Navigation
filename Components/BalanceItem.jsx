@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, View , StyleSheet , Dimensions, Pressable} from 'react-native';
+import { Text, View , StyleSheet , Dimensions, Pressable , Alert, Button} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -8,9 +8,13 @@ function ExpandButton({expanded, changeexpanded}){
     if(expanded==false){
         return(
         <Pressable style={styles.expandbutton}
-            // onPress={()=>
-            //     {changeexpanded(!expanded)}
-            // }
+            onPress={()=>{
+                changeexpanded(true);
+                // Alert.alert(JSON.stringify(expanded))
+            }
+            }
+        //     title='MORE'
+        // />
         >
             <Text style={styles.expbuttontext}>MORE</Text>
         </Pressable>
@@ -18,12 +22,14 @@ function ExpandButton({expanded, changeexpanded}){
     }else{
         return(
             <Pressable style={styles.expandbutton}
-            // onPress={
-            //     ()=>{}
-            // } 
-            >
-                <Text style={styles.expbuttontext}>LESS</Text>
-            </Pressable>
+            onPress={()=>{
+                changeexpanded(false);
+                // Alert.alert(JSON.stringify(expanded))
+            }
+        }
+        >
+            <Text style={styles.expbuttontext}>LESS</Text>
+        </Pressable>
         );
     }
     
@@ -31,21 +37,23 @@ function ExpandButton({expanded, changeexpanded}){
 let a=0;
 export default function BalanceItem({typeofaccount,value}){
     const [expanded,setExpanded] = useState(false);
-    function openClose(valueexp){()=>
+    function openClose(valueexp){
         setExpanded(valueexp);
+        // Alert.alert('troucou valor');
     }
 
 
     return(
         <View style={styles.containerview}> 
-        <ExpandButton
-            expanded={expanded}
-            changeexpanded={openClose()}
-        />
+        
         <Text style={styles.savingstype}>{typeofaccount}</Text>
         <Text style={styles.savingstypevalue}>{value}</Text>
-        
+        <ExpandButton
+            expanded={expanded}
+            changeexpanded={openClose}
+        />
         <View style={styles.separator} lightColor="#777" darkColor="rgba(255,255,255,0.1)" />
+        
         </View>
         
     );
@@ -87,6 +95,7 @@ const styles = StyleSheet.create({
         borderRadius:10,
         position:'absolute',
         marginTop:20,
+        // marginBottom:5,
         right:'10%',
     },
     expbuttontext:{
