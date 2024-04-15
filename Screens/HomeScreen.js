@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import WelcomeContainer from "../Components/WelcomeContainer";
 import GlobalBalance from "../Components/GlobalBalance";
 import BalanceItem from "../Components/BalanceItem";
+import { allStyles } from "../Components/allStyles";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -105,25 +106,14 @@ const HomeScreen = () => {
     },
   ]
   const Item = ({title}) => (
-    <Text style={styles.flatlistitem}>
+    <Text style={allStyles.flatlistitem}>
       {title}
     </Text>
   );
-  function ListContent(){
-    return(
-      <Text style={{backgroundColor:'#dd23aa67'}}>
-        {/* // OBS: If you wrap this in a view instead of a text the lines won't break. */}
-        <Text >This is a content for the list that is passed as an element.{'\n'}</Text>
-        <Text>We can add a lot of stuff here, and even make whole sessions with different stuff</Text>
-      </Text>
-      
-      
-    );
-  }
 
   return (
-    <View style={styles.container}>
-      <Text>Hello!</Text>
+    <View style={allStyles.container}>
+      {/* <Text>Hello!</Text> */}
       {/* <Text style={{margin:50}}>Placeholder text</Text>
       <Text style={{margin:50}}>Placeholder text</Text> */}
       <FlatList 
@@ -143,37 +133,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#eedede",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  DrawerButton1: {
-    backgroundColor: "#000",
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-    position:'absolute',
-    top:30,
-    left:10,
-  },
-  ButtonText: {
-    color: "#fff",
-  },
-  title: {
-    color:'red',
-  },
-  flatlistitem:{
-    // paddingTop:0,
-    // paddingBottom:0,
-    backgroundColor:'#fff',
-    // borderColor:'#232323',
-    // borderWidth:1, 
-    width:'100%',
-    // padding:10,
-    flexDirection:'column',
-  },
-});
