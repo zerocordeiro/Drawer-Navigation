@@ -55,19 +55,19 @@ function ExpandButton({expanded, changeexpanded}){
 }
 function ItemBalance({title}){
     return(
-        <Text style={{fontSize:14}}>
-            {title}
+        <Text style={{fontSize:24, color:'#898989'}}>
+            x...................{title}
         </Text>
     );
 }
     
-function ExtraContent({expanded}){
+function ExtraContent({expanded, dataexpanded}){
     if(expanded==false){
         return(<></>);
     }else{
         return(
             <FlatList 
-                data={DATABALANCE}
+                data={dataexpanded}
                 renderItem={({item})=> <ItemBalance title={item.title}/>
                     }
                 keyExtractor={e=>e.id}
@@ -76,7 +76,7 @@ function ExtraContent({expanded}){
     }
 }
 
-export default function BalanceItem({typeofaccount,value}){
+export default function BalanceItem({typeofaccount,value,extradata}){
     const [expanded,setExpanded] = useState(false);
     function openClose(valueexp){
         setExpanded(valueexp);
@@ -93,7 +93,7 @@ export default function BalanceItem({typeofaccount,value}){
             expanded={expanded}
             changeexpanded={openClose}
         />
-        <ExtraContent expanded={expanded}/>
+        <ExtraContent expanded={expanded} dataexpanded={extradata}/>
         <View style={styles.separator} lightColor="#777" darkColor="rgba(255,255,255,0.1)" />
         
         </View>

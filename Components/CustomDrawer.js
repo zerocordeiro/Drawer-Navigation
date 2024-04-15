@@ -43,7 +43,7 @@ const CustomDrawer = (props) => {
               marginBottom: 5,
             }}
           >
-            Name
+            Name567
           </Text>
         </ImageBackground>
         <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: 10 }}>

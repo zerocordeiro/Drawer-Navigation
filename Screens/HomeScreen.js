@@ -10,7 +10,9 @@ const HomeScreen = () => {
   const DATA = [
     {
       id:'1',
-      title:<WelcomeContainer/>,
+      title:<WelcomeContainer
+        opendrawer = {()=>navigation.openDrawer()}
+      />,
     },
     {
       id:'2',
@@ -21,6 +23,26 @@ const HomeScreen = () => {
       title:<BalanceItem 
       typeofaccount={'Savings Account'}
       value={'1.000.000,00 CFA'}
+      extradata={
+        [
+          {
+              id:'31',
+              title:'33.000,00',
+          },
+          {
+              id:'32',
+              title:'500,00',
+          },
+          {
+              id:'33',
+              title:'350.000,00',
+          },
+          {
+              id:'34',
+              title:'12.500,00',
+          },
+      ]
+      }
     />,
     },
     {
@@ -28,6 +50,26 @@ const HomeScreen = () => {
       title:<BalanceItem 
       typeofaccount={'Shared Account'}
       value={'50.000,00 CFA'}
+      extradata={
+        [
+          {
+              id:'41',
+              title:'44.000,00',
+          },
+          {
+              id:'42',
+              title:'500,00',
+          },
+          {
+              id:'43',
+              title:'350.000,00',
+          },
+          {
+              id:'44',
+              title:'12.500,00',
+          },
+      ]
+      }
     />,
     },
     {
@@ -35,6 +77,26 @@ const HomeScreen = () => {
       title:<BalanceItem 
       typeofaccount={'Shared Account 2'}
       value={'100.000,00 CFA'}
+      extradata={
+        [
+          {
+              id:'51',
+              title:'55.000,00',
+          },
+          {
+              id:'52',
+              title:'500,00',
+          },
+          {
+              id:'53',
+              title:'350.000,00',
+          },
+          {
+              id:'54',
+              title:'12.500,00',
+          },
+      ]
+      }
     />,
     },
     {
@@ -70,12 +132,12 @@ const HomeScreen = () => {
         keyextractor={e=>e.id}
       />
 
-      <TouchableOpacity
+      {/* <TouchableOpacity
         onPress={() => navigation.openDrawer()}
         style={styles.DrawerButton1}
       >
         <Text style={styles.ButtonText}>Drawer</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };

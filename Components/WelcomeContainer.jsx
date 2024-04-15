@@ -1,12 +1,23 @@
 import React from 'react'
-import { Text, View , StyleSheet , Dimensions} from 'react-native';
+import { Text, View , StyleSheet , Dimensions, Image, Pressable} from 'react-native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-export default function WelcomeContainer(){
+export default function WelcomeContainer({opendrawer}){
     return(
         <>
+        <View>
+            <Pressable onPress={opendrawer}>
+            <Image
+            alt="Not find"
+            // source={require("../assets/Images/user.jpg")}
+            source={require("../assets/favicon.png")}
+            style={styles.userAvatar}
+            />
+            </Pressable>
+        
+        </View>
         <View
             style={styles.welcomecontainer}
           >
@@ -61,6 +72,14 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         color:'#f68c23',
         textAlign:'left',
+    },
+    userAvatar: {
+        height: 60,
+        width: 60,
+        borderRadius: 40,
+        marginBottom: 0,
+        marginTop: 0,
+        marginLeft: 10,
     },
 
 
