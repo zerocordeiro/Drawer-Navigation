@@ -10,6 +10,7 @@ const allStyles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         top:30,
+        padding:0,
     },
     DrawerButton1: {
         backgroundColor: "#000",
@@ -82,7 +83,7 @@ const allStyles = StyleSheet.create({
         position:'absolute',
         marginTop:20,
         // marginBottom:5,
-        right:'10%',
+        right:'15%',
     },
     expbuttontext:{
         color:'white',
@@ -93,7 +94,39 @@ const allStyles = StyleSheet.create({
     },
     chartview:{
         paddingTop:10,
-    }
+    },
+    welcomecontainer:{
+        // backgroundColor:'none',
+        // position:'absolute',
+        // top:0,
+        // width:'90%',
+        textAlign:'left',
+    },
+    welcome:{
+        // backgroundColor:'none',
+        // position:'absolute',
+        // top:0,
+        // width:'90%',
+        fontSize: 16,
+        color:'#4f4f4f',
+        textAlign:'left',
+    },
+    username:{
+        // backgroundColor:'none',
+        // width:'90%',
+        fontSize: 28,
+        fontWeight:'bold',
+        color:'#f68c23',
+        textAlign:'left',
+    },
+    userAvatar: {
+        height: 60,
+        width: 60,
+        borderRadius: 40,
+        marginBottom: 0,
+        marginTop: 0,
+        marginLeft: 10,
+    },
 });
 
 export { allStyles }
